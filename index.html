@@ -7,7 +7,7 @@
   <body>
     <!-- Dropdown to select API version -->
     <div style="padding: 20px">
-      <select id="apiVersion" onchange="loadSpec(this.value)">
+      <select id="apiVersion">
         <option value="">Select Documentation API</option>
         <option value="./basic_and_full_request.json">
           Basic and Full Request
@@ -19,6 +19,7 @@
     </div>
     <!-- Swagger UI container -->
     <div id="swagger-ui"></div>
+
     <script src="./dist/swagger-ui-bundle.js"></script>
     <script src="./dist/swagger-ui-standalone-preset.js"></script>
     <script src="./dist/swagger-initializer.js"></script>
