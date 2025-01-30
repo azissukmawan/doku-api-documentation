@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>API Documentation</title>
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css" />
+  </head>
+  <body>
+    <!-- Dropdown to select API version -->
+    <div style="padding: 20px">
+      <select id="apiVersion" onchange="loadSpec(this.value)">
+        <option value="">Select Documentation API</option>
+        <option value="../basic_and_full_request.json">
+          Basic and Full Request
+        </option>
+        <option value="../check_status_snap_wallet.json">
+          SNAP API E-Wallet
+        </option>
+      </select>
+    </div>
+    <!-- Swagger UI container -->
+    <div id="swagger-ui"></div>
+    <script src="./swagger-ui-bundle.js"></script>
+    <script src="./swagger-ui-standalone-preset.js"></script>
+    <script src="./swagger-initializer.js"></script>
+  </body>
+</html>

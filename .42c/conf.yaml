@@ -1,0 +1,3 @@
+apis:
+  basic_and_full_request.json:
+    alias: doku-payment-api
