@@ -1,19 +1,21 @@
 window.loadSpec = function (url) {
+  // Destroy the existing Swagger UI instance if it exists
   if (window.ui) {
-    // Destroy existing Swagger UI instance
-    window.ui.getConfigs().presetApis.forEach((api) => api.api.destroy());
+    window.ui.destroy(); // Properly destroy the instance
+    window.ui = null;
+    document.getElementById("swagger-ui").innerHTML = ""; // Clear the DOM
   }
 
-  // Initialize Swagger UI with the selected spec
+  // Reinitialize Swagger UI with the new spec
   window.ui = SwaggerUIBundle({
     url: url,
     dom_id: "#swagger-ui",
-    presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+    presets: [
+      SwaggerUIBundle.presets.apis,
+      SwaggerUIStandalonePreset, // Include this preset if needed
+    ],
+    plugins: [SwaggerUIBundle.plugins.DownloadUrl],
     layout: "StandaloneLayout",
+    deepLinking: true,
   });
-};
-
-// Optional: Load a default spec on page load
-window.onload = function () {
-  loadSpec("./basic_and_full_request.json"); // Default to v1
 };
