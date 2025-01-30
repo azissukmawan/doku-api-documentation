@@ -15,5 +15,5 @@ window.loadSpec = function (url) {
 
 // Optional: Load a default spec on page load
 window.onload = function () {
-  loadSpec("../basic_and_full_request.json"); // Default to v1
+  loadSpec("./basic_and_full_request.json"); // Default to v1
 };
