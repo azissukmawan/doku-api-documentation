@@ -1,20 +1,19 @@
-window.onload = function() {
-  //<editor-fold desc="Changeable Configuration Block">
+window.loadSpec = function (url) {
+  if (window.ui) {
+    // Destroy existing Swagger UI instance
+    window.ui.getConfigs().presetApis.forEach((api) => api.api.destroy());
+  }
 
-  // the following lines will be replaced by docker/configurator, when it runs in a docker-container
+  // Initialize Swagger UI with the selected spec
   window.ui = SwaggerUIBundle({
-    url: "swagger.yaml",
-    dom_id: '#swagger-ui',
-    deepLinking: true,
-    presets: [
-      SwaggerUIBundle.presets.apis,
-      SwaggerUIStandalonePreset
-    ],
-    plugins: [
-      SwaggerUIBundle.plugins.DownloadUrl
-    ],
-    layout: "StandaloneLayout"
+    url: url,
+    dom_id: "#swagger-ui",
+    presets: [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset],
+    layout: "StandaloneLayout",
   });
+};
 
-  //</editor-fold>
+// Optional: Load a default spec on page load
+window.onload = function () {
+  loadSpec("basic_and_full_request.json"); // Default to v1
 };
