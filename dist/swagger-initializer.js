@@ -1,10 +1,10 @@
 window.loadSpec = function (url) {
   if (window.ui) {
-    // Destroy existing Swagger UI instance
-    window.ui.getConfigs().presetApis.forEach((api) => api.api.destroy());
+    window.ui.destroy();
+    window.ui = null;
+    document.getElementById("swagger-ui").innerHTML = "";
   }
 
-  // Initialize Swagger UI with the selected spec
   window.ui = SwaggerUIBundle({
     url: url,
     dom_id: "#swagger-ui",
@@ -13,7 +13,5 @@ window.loadSpec = function (url) {
   });
 };
 
-// Optional: Load a default spec on page load
-window.onload = function () {
-  loadSpec("basic_and_full_request.json"); // Default to v1
-};
+// Load a default spec on page load
+window.onload = () => loadSpec("./basic_and_full_request.json");
