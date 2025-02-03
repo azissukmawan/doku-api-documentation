@@ -7,12 +7,8 @@
   },
   "servers": [
     {
-      "url": "https://api-sandbox.doku.com/orders/v1.0/debit/status",
-      "description": "Sandbox environment"
-    },
-    {
-      "url": "https://api.doku.com/orders/v1.0/debit/status",
-      "description": "Production environment"
+      "url": "https://{api-domain}",
+      "description": "SwaggerHub API Auto Mocking"
     }
   ],
   "paths": {
@@ -21,6 +17,7 @@
         "summary": "Check status E-Wallet",
         "description": "Backend Integration to check status API",
         "operationId": "Check status E-Wallet",
+        "tags": ["Backend Integration to check status API E-Wallet"],
         "parameters": [
           {
             "name": "X-TIMESTAMP",
